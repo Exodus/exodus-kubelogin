@@ -16,3 +16,4 @@ parts:
     plugin: go
     source-type: git
     source: https://github.com/Azure/kubelogin
+    source-tag: v0.0.25
