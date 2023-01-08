@@ -9,10 +9,10 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 apps:
   kubelogin:
-    command: bin/linux_amd64/kubelogin
+    command: bin/kubelogin
 parts:
   kubelogin:
     # See 'snapcraft plugins'
-    plugin: dump
-    source: https://github.com/Azure/kubelogin/releases/download/v0.0.25/kubelogin-linux-amd64.zip
-
+    plugin: go
+    source-type: git
+    source: https://github.com/Azure/kubelogin
