@@ -9,13 +9,16 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 apps:
   kubelogin:
-    command: bin/kubelogin
+    command: kubelogin
 parts:
   kubelogin:
     # See 'snapcraft plugins'
     build-snaps:
       - go
     plugin: make
+    override-build: |
+      make
+      find . -iname 'kubelogin' -exec cp -r {} $SNAPCRAFT_PART_INSTALL/ \;
     source-type: git
     source: https://github.com/Azure/kubelogin
     source-tag: v0.0.25
